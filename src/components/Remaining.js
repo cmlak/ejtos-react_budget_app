@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
+import withCurrency from '../components/withCurrency';
 
-const Remaining = () => {
+const Remaining = (props) => {
     const { expenses, budget } = useContext(AppContext);
 
     const totalExpenses = expenses.reduce((total, item) => {
@@ -12,9 +13,9 @@ const Remaining = () => {
 
     return (
         <div className={`alert ${alertType}`}>
-            <span>Remaining: £{budget - totalExpenses}</span>
+            <span>Remaining: {props.money} {budget - totalExpenses}</span>
         </div>
     );
 };
 
-export default Remaining;
+export default withCurrency(Remaining);
