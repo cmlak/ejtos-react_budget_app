@@ -23,8 +23,9 @@ const ExpenseItem = (props) => {
             type: 'ADD_EXPENSE',
             payload: expense
         });
-    
-    }
+
+        
+      }
 
 
     return (
